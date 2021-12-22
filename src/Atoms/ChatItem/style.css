@@ -1,0 +1,48 @@
+.chat-box {
+    cursor: pointer;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.info-user {
+    display: inline-block;
+    display: inline-block;
+    margin: 0.5rem 0;
+    vertical-align: top;
+    border-radius: 50%;
+    width: 70%;
+}
+
+.user-status {
+    display: inline-block;
+    margin: 1rem 0;
+    vertical-align: top;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.connect {
+    background-color: #05c452;
+}
+
+.disconnect {
+    background-color: red;
+}
+
+.label-user {
+    display: block;
+    color: #284B63;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.avatar-img {
+    padding: 0px 5px;
+    vertical-align: bottom;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}

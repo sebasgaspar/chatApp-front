@@ -1,0 +1,33 @@
+.input-box {
+    position: relative;
+    padding: 2rem 1rem;
+    border-radius: 30px;
+}
+
+.input-box input {
+    width: 90%;
+    color: #2d494b;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0.75rem;
+    display: inline-block;
+    border: 1px solid #3C6E71;
+    outline: none;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+.input-box button {
+    background-color: white;
+    position: absolute;
+    right: 5%;
+    margin-top: 0.1rem;
+    border-radius: 50%;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    outline: 0;
+}
+.input-box button img{
+    cursor: pointer;
+    width: 40px;
+}

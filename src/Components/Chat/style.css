@@ -1,0 +1,12 @@
+.message-container {
+    display: grid;
+    min-height: 100vh;
+    max-height: 100vh;
+    grid-template-rows: 80% auto;
+}
+
+.messages-box {
+    display: grid;
+    overflow-y: scroll;
+    align-items: flex-end;
+}

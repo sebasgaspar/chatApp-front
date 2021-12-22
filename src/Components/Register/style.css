@@ -1,0 +1,11 @@
+.register-container {
+    width: 50%;
+    padding: 2rem;
+    margin: 2rem auto;
+}
+
+.register-container img {
+    display: block;
+    width: 60%;
+    margin: auto;
+}

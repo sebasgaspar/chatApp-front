@@ -1,0 +1,25 @@
+.list-chat-container {
+    display: grid;
+    grid-template-rows: 90% auto;
+}
+
+.list-chat {
+    overflow-y: scroll;
+}
+.btn-logout {
+    margin: 0.5rem auto;
+}
+
+.btn-logout button {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0.5rem 2rem;
+    border: 1px solid #284B63;
+    background-color: #284B63;
+    border-radius: 10px;
+    color: white;
+}
+.btn-logout button:hover {
+    background-color: white;
+    color: #284B63;
+}

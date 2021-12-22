@@ -1,0 +1,56 @@
+.success-alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
+    font-weight: 500;
+    padding: 0.25rem 0.50rem;
+    border-radius: 0.375rem;
+    color: rgba(4, 120, 87, 1);
+    background-color: rgba(209, 250, 229, 1);
+    border-width: 1px;
+    border-color: rgba(110, 231, 183, 1)
+}
+
+.failed-alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    color: rgba(185, 28, 28, 1);
+    background-color: rgba(254, 226, 226, 1);
+    border-width: 1px;
+    border-color: rgba(252, 165, 165, 1)
+}
+
+.svg-alert {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0 0.5rem;
+}
+.message-alert{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    max-width: 100%;
+    flex: 0 1 auto;
+}
+.close-container{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row-reverse;
+}
+.close-alert {
+    cursor: pointer;
+    border-radius: 9999px;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: 0.5rem;
+}
+
+.close-alert::hover {
+    color: rgba(248, 113, 113, 1);
+}

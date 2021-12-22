@@ -1,0 +1,13 @@
+.box-message-receive {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: auto;
+    text-align: left;
+    padding: 0.3rem 1rem;
+    margin: 1rem 2rem;
+    background-color: #eceaed;
+    color: black;
+    font-family: 'Poppins';
+    border-radius: 12px;
+}
