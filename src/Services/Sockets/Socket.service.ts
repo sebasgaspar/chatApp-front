@@ -19,6 +19,7 @@ export const connect = () => {
         console.log('Conectado al servidor')
     });
     socket.on('disconnect', () => {
+        socket.emit('user-connect')
         console.log('Perdimos comunicación con el servidor');
     });
 

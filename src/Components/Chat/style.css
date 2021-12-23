@@ -2,11 +2,58 @@
     display: grid;
     min-height: 100vh;
     max-height: 100vh;
-    grid-template-rows: 80% auto;
+    grid-template-rows: 10% 70% auto;
 }
 
 .messages-box {
     display: grid;
     overflow-y: scroll;
     align-items: flex-end;
+}
+
+.messages-items {
+    display: grid;
+}
+
+.no-user-selected {
+    font-family: 'Poppins';
+    color: #3C6E71;
+    height: 100%;
+    text-align: center;
+    display: table;
+}
+
+.no-user-selected h3 {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.info-user-container {
+    padding: 0rem 1rem;
+    border: 1px solid #939090;
+    box-shadow: 8px 4px 11px 8px rgb(64 62 62 / 21%)
+}
+
+.info-user-container label {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.back-icon {
+    display: none;
+    border: solid #3C6E71;
+    border-width: 0 5px 5px 0;
+    padding: 6px;
+    margin-bottom: 1rem;
+
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+@media (max-width: 767px) {
+    .back-icon {
+        display: inline-block;
+    }
 }

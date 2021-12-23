@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { connect } from 'react-redux'
+import setLoadingAction from '../../redux/actions/LoadingAction'
+
 import { signUpIn } from "../../Utils/Json/SignUpIn";
 import { AlertPropsI, FormContactI, UserModel } from "../../Interfaces";
 import { AlertMessage, Input } from "../../Atoms";
 
-import { connect } from '../../Services/Sockets/Socket.service'
+import { connect as connectSockect } from '../../Services/Sockets/Socket.service'
 import { AuthService } from '../../Services/Auth/Auth.service'
 
-export function RegisterFormCommon(): JSX.Element {
+import maleImg from '../../Assets/user/avatar-1.png'
+import femaleImg from '../../Assets/user/avatar-2.png'
+
+import './style.css'
+function RegisterFormCommon({ setLoadingActions }: any): JSX.Element {
     const authService = new AuthService()
     const navigation = useNavigate();
 
@@ -17,7 +24,7 @@ export function RegisterFormCommon(): JSX.Element {
     const alertState: AlertPropsI = { type: '', message: '' };
     const [alertMessage, setAlertMessage] = useState<AlertPropsI>(alertState);
 
-    const frmContact: any = { user: '', password: '', 'repeat-password': '' };
+    const frmContact: any = { user: '', password: '', 'repeat-password': '', gender: '' };
     const [register, setRegister] = useState<any>(frmContact);
 
     const _handleChange = (e: any) => {
@@ -30,18 +37,24 @@ export function RegisterFormCommon(): JSX.Element {
             setAlertMessage({ type: 'FAILED', message: 'Las contraseñas no coinciden' })
             return
         }
+        if (register.gender === '') {
+            setAlertMessage({ type: 'FAILED', message: 'Llena el campo de genero' })
+            return
+        }
         const user: UserModel = {
             user: register.user,
             password: register.password,
-            img:'avatar-1.png'
+            img: register.gender
         }
         try {
+            setLoadingActions(true)
             const response = await authService.register(user)
             if (response.status === 200) {
                 localStorage.setItem('token', response.data.token)
                 localStorage.setItem('user', JSON.stringify(response.data.usuario))
                 localStorage.setItem('uid', response.data.usuario.uid)
-                connect()
+                connectSockect()
+                setLoadingActions(false)
                 navigation("/chat")
             }
         } catch (err: any) {
@@ -65,6 +78,7 @@ export function RegisterFormCommon(): JSX.Element {
                         onChange={_handleChange}
                     />
                 })}
+                <GenderRadio register={register} setRegister={setRegister} />
             </div>
             <div className="btn-container">
                 <button type="submit">Registrar</button>
@@ -76,3 +90,31 @@ export function RegisterFormCommon(): JSX.Element {
         </form>
     )
 }
+
+function GenderRadio(props: any): JSX.Element {
+    const _onChangeValue = (e: any) => {
+        const { value } = e.target;
+        props.setRegister({ ...props.register, 'gender': value })
+    }
+    return (
+        <div>
+            <label className="label-gender">Género</label>
+            <div className="radio-gender-container" onChange={_onChangeValue}>
+                <div className="gender-radio">
+                    <img className="img-gender" src={maleImg} alt="Male" />
+                    <input type="radio" value="avatar-1.png" name="gender" /> Male
+                </div>
+                <div className="gender-radio">
+                    <img className="img-gender" src={femaleImg} alt="Male" />
+                    <input type="radio" value="avatar-2.png" name="gender" /> Female
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const _mapDispatchToProps = (dispatch: any) => ({
+    setLoadingActions: (loadingSelected: boolean) => dispatch(setLoadingAction(loadingSelected))
+})
+
+export default connect(null, _mapDispatchToProps)(RegisterFormCommon)

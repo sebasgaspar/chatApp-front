@@ -1,12 +1,20 @@
 .chat-box {
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid #284B63;
     box-sizing: border-box;
     padding: 5px;
 }
 
+.selected {
+    background-color: #71a5de;
+}
+
+.selected .label-user{
+    color: white;
+
+}
+
 .info-user {
-    display: inline-block;
     display: inline-block;
     margin: 0.5rem 0;
     vertical-align: top;

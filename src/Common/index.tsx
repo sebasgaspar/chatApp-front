@@ -1,2 +1,5 @@
-export { LoginFormCommon as LoginForm } from './LoginForm/LoginForm.common'
-export { RegisterFormCommon as RegisterForm } from './RegisterForm/Register.common'
+import LoginForm from './LoginForm/LoginForm.common'
+import RegisterForm from './RegisterForm/Register.common'
+
+export { LoginForm }
+export { RegisterForm }

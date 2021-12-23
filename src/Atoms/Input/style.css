@@ -28,3 +28,12 @@ input:focus-visible,
 textarea:focus-visible {
     outline: 1.5px solid #3C6E71;
 }
+
+@media (max-width: 767px) {
+    .input-atom label {
+        color: #3C6E71;
+        margin: 0 0rem;
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+}

@@ -9,3 +9,10 @@
     width: 60%;
     margin: auto;
 }
+
+
+@media (max-width: 767px) {
+    .login-container {
+        width: 80%;
+    }
+}

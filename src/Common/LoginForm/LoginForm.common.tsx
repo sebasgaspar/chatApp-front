@@ -1,18 +1,21 @@
 import { useState } from 'react'
 
+import { connect } from 'react-redux'
+import setLoadingAction from '../../redux/actions/LoadingAction'
+
 import { signUpIn } from '../../Utils/Json/SignUpIn'
 import { AlertPropsI, FormContactI, UserModel } from '../../Interfaces'
 
 import { AlertMessage, Input } from '../../Atoms'
 
 import { AuthService } from '../../Services/Auth/Auth.service'
-import { connect } from '../../Services/Sockets/Socket.service'
+import { connect as connectSockect } from '../../Services/Sockets/Socket.service'
 
 import { useNavigate } from 'react-router-dom'
 
 import './style.css'
 
-export function LoginFormCommon(): JSX.Element {
+function LoginFormCommon({ setLoadingActions }: any): JSX.Element {
     const authService = new AuthService()
     const navigation = useNavigate();
 
@@ -28,7 +31,7 @@ export function LoginFormCommon(): JSX.Element {
         const { name, value } = e.target;
         setLogin({ ...login, [name]: value });
     };
-    
+
     const _handleSubmit = async (e: any) => {
         e.preventDefault();
         const user: UserModel = {
@@ -36,12 +39,14 @@ export function LoginFormCommon(): JSX.Element {
             password: login.password,
         }
         try {
+            setLoadingActions(true)
             const response = await authService.login(user)
             if (response.status === 200) {
                 localStorage.setItem('token', response.data.token)
                 localStorage.setItem('user', JSON.stringify(response.data.usuario))
                 localStorage.setItem('uid', response.data.usuario.uid)
-                connect()
+                connectSockect()
+                setLoadingActions(false)
                 navigation("/chat")
             }
         } catch (err: any) {
@@ -78,3 +83,9 @@ export function LoginFormCommon(): JSX.Element {
         </form>
     )
 }
+
+const _mapDispatchToProps = (dispatch: any) => ({
+    setLoadingActions: (loadingSelected: boolean) => dispatch(setLoadingAction(loadingSelected))
+})
+
+export default connect(null, _mapDispatchToProps)(LoginFormCommon)

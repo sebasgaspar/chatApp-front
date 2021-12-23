@@ -5,7 +5,10 @@ import rootReducer from "./reducers/rootReducer";
 
 const initialState = {
   chatState: {
-    chatSelected: null
+    chatSelected: {}
+  },
+  loadingState: {
+    loadingSelected: false
   }
 };
 

@@ -12,6 +12,7 @@
     border-radius: 10px;
     color: white;
 }
+
 .btn-container button:hover {
     background-color: white;
     color: #284B63;
@@ -56,4 +57,8 @@
 .signInUp-info h4 {
     margin: 0.5rem;
     cursor: pointer;
+}
+
+@media (max-width: 767px) {
+
 }

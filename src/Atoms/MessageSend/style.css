@@ -11,3 +11,19 @@
     font-family: 'Poppins';
     border-radius: 12px;
 }
+
+.animate-bottom {
+    position: relative;
+    animation: animatebottom .5s
+}
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}

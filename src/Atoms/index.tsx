@@ -1,5 +1,5 @@
 import ChatItem from './ChatItem/ChatItem'
-
+import Loading from './Loading/Loading.atom'
 
 export { InputAtom as Input } from './Input/Input.atom'
 export { ChatItem }
@@ -8,3 +8,4 @@ export { MessageReceiveAtom as MessageReceive } from './MessageReceive/MessageRe
 export { InputSendAtom as InputSend } from './InputSend/InputSend.atom'
 export { AlertMessageAtom as AlertMessage } from './AlertMessage/AlertMessage.atom'
 export { LogoutAtom as Logout } from './LogoutAtom/Logout.atom'
+export { Loading } 

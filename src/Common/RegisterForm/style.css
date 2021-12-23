@@ -1,0 +1,25 @@
+.radio-gender-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:auto;
+    text-align: center;
+}
+.gender-radio{
+    font-family: 'Poppins';
+    font-size: 22px;
+    color: #3C6E71;
+    font-weight: 600;
+}
+.gender-radio .img-gender {
+    width: 100px;
+}
+.label-gender{
+    display: block;
+    text-align: left;
+    color: #3C6E71;
+    font-weight: 600;
+    margin: 0 2rem;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}

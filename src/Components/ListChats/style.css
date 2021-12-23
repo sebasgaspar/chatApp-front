@@ -1,8 +1,18 @@
 .list-chat-container {
     display: grid;
-    grid-template-rows: 90% auto;
+    grid-template-rows: 10% 75% auto;
 }
-
+.box-header-info{
+    display: flex;
+    justify-content: space-between;
+    background-color: #284B63;
+    color: white;
+    font-size: 22px;
+    padding:0 1rem;
+}
+.box-header-info p{
+    margin: 1rem 0;
+}
 .list-chat {
     overflow-y: scroll;
 }
@@ -22,4 +32,8 @@
 .btn-logout button:hover {
     background-color: white;
     color: #284B63;
+}
+
+@media (max-width: 767px) {
+
 }
