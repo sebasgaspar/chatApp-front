@@ -58,6 +58,7 @@ function RegisterFormCommon({ setLoadingActions }: any): JSX.Element {
                 navigation("/chat")
             }
         } catch (err: any) {
+            setLoadingActions(false)
             if (err.response.status === 400) setAlertMessage({ type: 'FAILED', message: err.response.data.msg })
             throw err
         }

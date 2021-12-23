@@ -51,6 +51,7 @@ function LoginFormCommon({ setLoadingActions }: any): JSX.Element {
             }
         } catch (err: any) {
             console.log(err.response)
+            setLoadingActions(false)
             if (err.response.status === 404) setAlertMessage({ type: 'FAILED', message: err.response.data.msg })
             if (err.response.status === 400) setAlertMessage({ type: 'FAILED', message: err.response.data.msg })
             throw err
